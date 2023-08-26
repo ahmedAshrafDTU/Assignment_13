@@ -1,0 +1,80 @@
+السلام عليكم  عاملين ايه يارب تكونوا بخير 💜
+دا الـ Assignment اللى هنطبق فيه علي الـ  jQuery
+
+المطلوب
+🔴 المفروض نعمل زي الموقع دا بالظبط. :
+DEMO: bit.ly/3qsxFsl
+⬅️ الـ section التانى موجود كـ component في الـ bootstrap لكن انا عايزكوا تعملوا بنفسكوا.
+⬅️ الـ section التالت عبارة عن معاد للـ event يعنى انت مثلا هتكتب ان معاد الـ event مثلا يوم 25/10/2023 فتعمل count down للأيام والساعات وهكذا زى ما موجود فالـ website
+⬅️ الـ section الرابع الـ user متاح ليه 100 حرف فالـ Message كل ما يدخل حرف يقلل من العدد وهكذا.
+
+الاسيمنت سهل وهيعلمك كتير جدا فلازم الكل يعمله 💜
+موفقين ان شاء الله ❤️
+الديدلاين : يوم الاربعاء الساعة 10م.
+
+
+Certainly! You can achieve the same functionality using jQuery. Here's the modified code using jQuery:
+
+1. Create an HTML file (e.g., `index.html`):
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Count</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <label for="textInput">Enter text (1-100 characters):</label>
+        <input type="text" id="textInput">
+        <div id="charCount"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+2. Create a JavaScript file (e.g., `script.js`) to handle character counting and display:
+
+```javascript
+$(document).ready(function () {
+    const textInput = $("#textInput");
+    const charCount = $("#charCount");
+
+    textInput.on("input", function () {
+        const inputText = textInput.val();
+        const charLength = inputText.length;
+
+        if (charLength > 100) {
+            textInput.addClass("error");
+            charCount.text("Character count exceeds the limit (100)");
+        } else {
+            textInput.removeClass("error");
+            charCount.text(`Remaining characters: ${100 - charLength}`);
+        }
+    });
+});
+```
+
+3. Create a CSS file (e.g., `styles.css`) for styling:
+
+```css
+.container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.error {
+    border: 1px solid red;
+    background-color: #ffcccc;
+}
+```
+
+In this code, we've used jQuery to select elements by their IDs and attach event listeners to the input field. The logic for character counting and displaying error messages remains the same as in the previous example.
+
+Now, when you open `index.html` in a web browser, it will allow the user to enter text between 1 and 100 characters, and it will display an error message if the limit is exceeded. The input box will also change its style when an error occurs, thanks to the "error" class added or removed by jQuery.
